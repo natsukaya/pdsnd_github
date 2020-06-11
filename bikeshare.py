@@ -61,6 +61,7 @@ def load_data(city, month, day):
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
+    # create month list to store all valid months
     months = ['january', 'february', 'march', 'april', 'may', 'june']
     # check for all months case
     if month != 'all':
