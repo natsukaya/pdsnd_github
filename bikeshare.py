@@ -106,15 +106,15 @@ def station_stats(df):
 
     # TO DO: display most commonly used start station
     most_popular_start_station = df['Start Station'].mode()[0]
-    print('Most popular start station: ', most_popular_start_station)
+    print('Most popular start station: {}'.format(most_popular_start_station))
 
     # TO DO: display most commonly used end station
     most_popular_end_station = df['End Station'].mode()[0]
-    print('Most popular end station: ', most_popular_end_station)
+    print('Most popular end station: {}'.format(most_popular_end_station))
 
     # TO DO: display most frequent combination of start station and end station trip
     start_end_station = df.groupby(['Start Station','End Station']).size().reset_index().rename(columns={0:'count'}).sort_values(by='count', ascending=False)
-    print('Most popular combination of start and end station : ', start_end_station['Start Station'].values[0], ' and ', start_end_station['End Station'].values[0],', count: ', start_end_station['count'].values[0])
+    print('Most popular combination of start and end station : {} and {}, count: {}'.format( start_end_station['Start Station'].values[0], start_end_station['End Station'].values[0], start_end_station['count'].values[0]))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -128,11 +128,11 @@ def trip_duration_stats(df):
 
     # TO DO: display total travel time
     total_travel_time = df['Trip Duration'].sum()
-    print('Total travle time (in seconds): ',total_travel_time)
+    print('Total travle time (in seconds): {}'.format(total_travel_time))
 
     # TO DO: display mean travel time
     mean_travel_time = df['Trip Duration'].mean()
-    print('Average travle time (in seconds): ',mean_travel_time)
+    print('Average travle time (in seconds): {}'.format(mean_travel_time))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -146,22 +146,22 @@ def user_stats(df):
 
     # TO DO: Display counts of user types
     user_type = df['User Type'].value_counts()
-    print('Total customer count: ', user_type['Customer'])
-    print('Total subscriber count: ', user_type['Subscriber'])
+    print('Total customer count: {}'.formate(user_type['Customer']))
+    print('Total subscriber count: {}'.format(user_type['Subscriber']))
 
     # TO DO: Display counts of gender
     if 'Gender' in df.columns:
         gender_count = df['Gender'].value_counts()
-        print('Male count: ', gender_count['Male'])
-        print('Female count: ', gender_count['Female'])
+        print('Male count: {}'.format(gender_count['Male']))
+        print('Female count: {}'.format(gender_count['Female']))
     else:
         print('Gender data not available.')
 
     # TO DO: Display earliest, most recent, and most common year of birth
     if 'Birth Year' in df.columns:
-        print('Earliest birth year: ', df['Birth Year'].min())
-        print('Most recent birth year: ', df['Birth Year'].max())
-        print('Most common birth year: ', df['Birth Year'].mode()[0])
+        print('Earliest birth year: {}'.formate(df['Birth Year'].min()))
+        print('Most recent birth year: {}'.format(df['Birth Year'].max()))
+        print('Most common birth year: {}'.format(df['Birth Year'].mode()[0]))
     else:
         print('Birth year data not available.')
 
