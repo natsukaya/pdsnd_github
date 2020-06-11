@@ -145,22 +145,22 @@ def user_stats(df):
 
     # TO DO: Display counts of user types
     user_type = df['User Type'].value_counts()
-    print('Total customer count: ', user_type['Customer'])
-    print('Total subscriber count: ', user_type['Subscriber'])
+    print('Total customer count: {}'.formate(user_type['Customer']))
+    print('Total subscriber count: {}'.format(user_type['Subscriber']))
 
     # TO DO: Display counts of gender
     if 'Gender' in df.columns:
         gender_count = df['Gender'].value_counts()
-        print('Male count: ', gender_count['Male'])
-        print('Female count: ', gender_count['Female'])
+        print('Male count: {}'.format(gender_count['Male']))
+        print('Female count: {}'.format(gender_count['Female']))
     else:
         print('Gender data not available.')
 
     # TO DO: Display earliest, most recent, and most common year of birth
     if 'Birth Year' in df.columns:
-        print('Earliest birth year: ', df['Birth Year'].min())
-        print('Most recent birth year: ', df['Birth Year'].max())
-        print('Most common birth year: ', df['Birth Year'].mode()[0])
+        print('Earliest birth year: {}'.formate(df['Birth Year'].min()))
+        print('Most recent birth year: {}'.format(df['Birth Year'].max()))
+        print('Most common birth year: {}'.format(df['Birth Year'].mode()[0]))
     else:
         print('Birth year data not available.')
 
